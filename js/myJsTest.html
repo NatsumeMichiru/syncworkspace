@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>array in object</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script src="jQuery/jquery-3.2.1.js"></script>
+        <script>
+            var myArray = ['dudulu1', 'dudulu2', 'dudulu3'];
+            var myString = '';
+            $.each(myArray, function(i, val) {
+                myString = myString + i + val + ' ';
+            })
+
+            document.write(myString);
+
+
+        </script>
+    </body>
+</html>

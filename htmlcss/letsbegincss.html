@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>letsbegincss</title>
+        <meta name="author" content="michiru">
+        <meta name="charset" content="utf-8">
+        <style type="text/css">
+
+
+            P + a {
+                color:darkcyan;
+                /*兄弟选择器，选择紧跟的一个元素*/
+            }
+            p ~ a {
+                color: darkcyan;
+                /*目标元素位于匹配第一个选择器的元素之后，且匹配第二个选择器*/
+            }
+            .class1 p:nth-child(even){
+                background: grey;
+            }
+            a {
+                display: block;
+            }
+            thead  tr{
+                background-color: grey;
+                color: white;
+            }
+            tbody tr th{
+                background: lightgrey;
+            }
+            input:invalid {
+                outline: medium solid orangered;
+            }
+            input:valid {
+                outline: medium solid darkcyan;
+            }
+            .p1 {
+                border: 1px solid black;
+                border-radius: 10% 5%;
+                background: lightgrey;
+                padding: 1em;
+                background-clip: content-box;
+            }
+            .div {
+                border: 1px black solid;
+            }
+            #div1 {
+                width:50%;
+                height: 200px;
+            }
+            #div2,#div3 {
+                height: 50%;
+                width:30%;
+                float: left;
+                margin: 10% 10% 5% 5%;            
+            }
+            /*p.toggle {
+                float:left;
+                border: medium double black;
+                width: 40%;
+                margin: 2px;
+                padding: 2px;
+            }
+            p.cleard {
+                clear: both;
+            }            */
+            #div4 {
+                height: 100px;
+                width: 100px;
+                background: lightgrey;
+                position: absolute;
+                top: 10px;
+                left: 20px;
+            }
+            #div5 {
+
+                position: static;
+            }
+            /*.column {
+                column-count: 3;
+                column-fill: auto;
+                column-rule: 2px solid darkgrey;
+                column-gap: 2em;
+            }*/
+            .flexBoxTest {
+                width: 150px;
+                float: left;
+                border: 1px solid grey;
+                background-color: lightgrey;
+                margin: 2px;
+
+            }
+            /*#container {
+                display: -webkit-box;
+            }
+            #secondBox {
+                -webkit-box-flex: 1;
+            }*/
+            
+        </style>
+    </head>
+    <body>
+        <h1>This is the headline h1.</h1>
+        <div class="class1">
+        <p>This is the second line.</p>
+        <p>This is the first first line.</p>
+        <p>This is the second line.</p>
+        </div>
+        <!--<a href="http://www.baidu.com">This is a link</a>
+        <a href="http://www.baidu.com">This is another link</a>
+        <a href="#name">This is a link to my own object</a>-->
+        <table>
+            <thead>
+            <tr>
+                <th>title1</th>
+                <th>title2</th>
+                <th>title3</th>
+            </tr>           
+            </thead>
+            <tbody>
+            <tr id="firstchoice">
+                <th>title1</th>
+                <td>data1</td>
+                <td>data2</td>
+            </tr>
+            <tr>
+                <th>title2</th>
+                <td>data3</td>
+                <td>data4</td>
+            </tr>                
+            </tbody>
+
+        </table>
+        <form action="" method="post">
+            <p><label for="name">Name:</label><input id="name" type="text" name="name" value="" required></p>
+            <p><label for="city">City:</label><input id="city" type="text" name="city" value="" required></p>
+            <p><button type="submit">submit</button></p>
+        </form>
+
+        <br><br><br>
+        <!--<p class="p1">There are lots of different kinds of fruit - there are over 500 varieties of banana alone. By the time we add the countless types of apples, oranges, and other well-known fruit, we are faced with thousands of choices.
+            There are lots of different kinds of fruit - there are over 500 varieties of banana alone. By the time we add the countless types of apples, oranges, and other well-known fruit, we are faced with thousands of choices.
+            There are lots of different kinds of fruit - there are over 500 varieties of banana alone. By the time we add the countless types of apples, oranges, and other well-known fruit, we are faced with thousands of choices.
+
+        </p>-->
+        <!--<div id="div1" class="div">
+            <div id="div2" class="div"></div>    
+            <div id="div3" class="div"></div>
+        </div>-->
+        <div id="container">
+        <p class="flexBoxTest">
+            There are lots of different kinds of fruit - there are over 500 varieties
+            of banana alone. By the time we add the countless types of apples, oranges,
+            and other well-known fruit, we are faced with thousands of choices. 
+                        There are lots of different kinds of fruit - there are over 500 varieties
+            of banana alone. By the time we add the countless types of apples, oranges,
+        </p>
+        <!--<div id="div5">
+        <div id="div4">
+            
+        </div>
+        </div>-->
+        <p class="flexBoxTest" id="secondBox">
+            One of the most interesting aspects of fruit is the variety available in
+            each country. I live near London, in an area which is known for
+            its apples.             One of the most interesting aspects of fruit is the variety available in
+            each country. I live near London, in an area which is known for
+            its apples. 
+            its apples. 
+        </p>
+        <p class="flexBoxTest">
+            When travelling in Asia, I was struck by how many different
+            kinds of banana were available - many of which had unique flavours and
+            which were only avaiable within a small region.
+                        When travelling in Asia, I was struck by how many different
+            kinds of banana were available - many of which had unique flavours and
+
+        </p>
+        </div>
+    </body>
+</html>

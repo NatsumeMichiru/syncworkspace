@@ -1,0 +1,43 @@
+​<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+    .flex {
+        /* basic styling */
+        width: 350px;
+        height: 200px;
+        border: 1px solid #555;
+        font: 14px Arial;
+
+        /* flexbox setup */
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flex > div {
+        flex: 1 1 auto;
+        width: 30px; 
+        transition: width 0.7s ease-out;
+    }
+
+    /* colors */
+    .flex > div:nth-child(1){ background: #009246; }
+    .flex > div:nth-child(2){ background: #F1F2F1; }
+    .flex > div:nth-child(3){ background: #CE2B37; }
+
+    .flex > div:hover {
+
+        width: 300px;
+    }
+   
+    </style> 
+  </head>
+  <body>
+    <p>Flexbox nuovo</p>
+    <div class="flex">
+      <div>uno</div>
+      <div>due</div>
+      <div>tre</div>
+    </div>
+  </body>
+</html>

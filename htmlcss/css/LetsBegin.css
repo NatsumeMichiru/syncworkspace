@@ -1,0 +1,9 @@
+@charset "UTF-8";
+a {
+    background: gray;
+    color: white;
+}
+span {
+    border: 1px black solid;
+    padding: 2px;
+}

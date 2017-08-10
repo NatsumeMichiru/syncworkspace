@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>border-radius-test</title>
+        <meta name="author" content="michiru">
+        <meta name="discription" content="a test website">
+        <link rel="stylesheet" type="text/css" href="">
+        <style type="text/css">
+            #container {
+                background-color: #fcfcfb;
+                display: flex;
+                height: 1000px;
+                width: 960px;
+                margin: 0px auto;
+            }
+            .container-div {
+                z-index: 1000;
+                height: 400px;
+                /*width: 32%;*/
+                flex: 1;
+                background-color: darkcyan;
+                margin-left: 5px;
+                margin-right: 5px;
+                margin-top: 10px;
+                float: left;
+                /*transition-duration: 300ms;
+                transition-delay: 100ms;
+                transition-timing-function: linear;*/
+
+
+            }
+            #container-div1 {
+                transition-duration: 200ms;
+                float: left;
+
+            }
+            #container-div1:hover {
+                /*transform: scale(1.1);*/
+                flex: 3;
+                background: #bbb;
+            }
+            #container-div2:hover {
+                background-color: #00a0a0;
+                transition-duration: 200ms;
+            }
+            /*.container-div:hover {
+                background-color: #00bbbb;
+                transition-duration: 300ms;
+                transition-delay: 5ms;
+                transition-timing-function: linear;
+
+            }*/
+        </style>
+    </head>
+    <body>
+        <div id="container">
+
+            <div class="container-div" id="container-div1"></div>
+            <!--<p style="clear:left">This is a test paragraph</p>-->
+            <div class="container-div" id="container-div2"></div>
+            <div class="container-div" id="container-div3"></div>
+
+
+
+        </div>
+
+    </body>
+
+</html>

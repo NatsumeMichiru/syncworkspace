@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>begincss2</title>
+        <meta name="author" content="michiru">
+        <style type="text/css">
+            /*@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');*/
+            #alignTest {
+                width: 400px;
+                margin: 5px;
+                padding: 5px;
+                border: 1px solid grey;
+                background: lightgrey;
+                /*text-align: left;*/
+                font-family: 'Anonymous Pro', monospace;
+                text-indent: 5%;
+            }
+            #div1 {
+                /*width: 50%;*/
+            }
+            #apple {
+                font-size: large;
+                -webkit-transition-duration: 500ms;
+                -moz-transition-duration: 500ms;
+                -o-transition-duration: 500ms;
+                transition-duration: 500ms;
+            }
+            #apple:hover {
+                border: medium solid white;
+                background: darkcyan;
+                color: white;
+                -webkit-transition-duration: 500ms;
+                transition-duration: 500ms;
+                transition-property: background, color, padding, border;
+            }
+            #animationTest {
+                -webkit-animation-delay: 100ms;
+                -webkit-animation-duration: 1s;
+                -webkit-animation-timing-function: ease;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-name: "animationTest1";
+                -webkit-animation-direction: alternate;
+                position: relative;
+                width: 500px;
+                /*animation-delay: 100ms;
+                animation-duration: 500ms;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-name: 'animationTest1';*/
+            }
+            /*@-webkit-keyframes animationTest1 {
+                from{
+                    color: black;
+                    left: 0px;
+                }
+
+                to {
+                    color: darkcyan;
+                    left: 100px;
+                }
+            }*/
+            /*#transfromTest {
+                width: 400px;
+                -webkit-transform: rotate(1);
+                -webkit-transition-duration: 500ms;
+            }
+            #transformTest:hover {
+                width: 400px;
+                -webkit-transform: rotate(360deg);
+                -webkit-transition-duration: 500ms;
+            }*/
+
+        </style>
+    </head>
+    <body>
+        <div id="div1">
+        <p id="alignTest" class="propertyTest">There are lots of different kinds of fruit - there are over 500 varieties
+            of banana alone. By the time we add the countless types of <span id="apple">apples</span>, oranges,
+            and other well-known fruit, we are faced with thousands of choices. 
+                        There are lots of different kinds of fruit - there are over 500 varieties
+            of banana alone. By the time we add the countless types of apples, oranges,</p>
+        <p>When travelling in Asia, I was struck by how many different
+            kinds of banana were available - many of which had unique flavours and
+            which were only avaiable within a small region.
+                        When travelling in Asia, I was struck by how many different
+            kinds of banana were available - many of which had unique flavours and</p>
+        <h1 id="animationTest">animationTest</h1>
+        <h1 id="transformTest">Transform</h1>
+        </div>
+        <div id="triangle-up">
+            
+        </div>
+    </body>
+</html>

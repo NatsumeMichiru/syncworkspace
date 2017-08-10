@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lets begin</title>
+        <link rel="stylesheet" type="text/css" href="css/LetsBegin.css">
+        <style type="text/css">
+        </style>
+        
+    </head>
+
+    <body>
+        <p>I like <a href="http://www.baidu.com" >baidu</a>.</p>
+        <p>enter your name:</p>
+        <input disabled>
+        <p contenteditable="true">This is an editable content</p>
+        <script type="text/javascript">
+            document.writeln("hello");
+            document.writeln("This is a statement");
+
+            function MyFunc(){
+                document.writeln("This is a function");
+            };            
+            MyFunc();
+
+            function MyFunc2(name,weather){
+                document.writeln("Hello " + name + ".");
+                document.writeln("It is " + weather + " today.");
+            }
+            
+            MyFunc2("Jack","sunny");
+            function MyFunc3(name){
+                return ("Hello " + name + ".");
+            };
+            document.writeln(MyFunc3("Jack"));
+            
+            var myGlobalVar = "apples";
+            function MyFunc4(name){
+                var myLocalVar = "sunny";
+                return ("Hello " + name + "Today is " + myLocalVar + ".");
+            }
+            document.writeln(MyFunc4("David"));
+            document.writeln("I like " + myGlobalVar + ".");
+
+            var myData = new Object();
+            myData.name = "Jack";
+            myData.weather = "sunny";
+            document.writeln("Hello " + myData.name + "!" + "Today is " + myData.weather + ".");
+
+            var myData2 = {
+                name: "Jack",
+                weather: "sunny",
+                printMessages: function(){
+                    document.writeln("Hello " + this.name + ".");
+                    document.writeln("Today is " + this.weather + ".");
+                }
+            };
+            myData2.printMessages();
+
+            for(var prop in myData2){
+                document.writeln("Name: " + prop + " Value: " + myData2[prop]);
+            }
+
+            var hasName = "name" in myData2;
+            document.writeln(hasName);
+
+            var myArray = new Array();
+            myArray[0] = 100;
+            myArray[1] = "Jack";
+            myArray[2] = true;
+            document.writeln(myArray.length);
+            for (var i = 0; i < myArray.length; i++){
+                document.writeln("Index " + i + ": " + myArray[i]);
+            }
+
+            try{
+                var myArray1;
+                for (var i = 0; i < myArray1.length; i++){
+                    document.writeln("Index:" + i + ": " + myArray1[i]);
+                }
+            }catch(e){
+                document.writeln("Error: " + e);
+            }finally{
+                document.writeln("Statements here are always executed.");
+            }
+            
+        </script>
+    </body>
+</html>

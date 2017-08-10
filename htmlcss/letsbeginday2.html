@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>letsbeginday2</title>
+        <base href="http://localhost:8080"/>
+        <meta name="author" content="michiru"/>
+        <meta name="descirption" content="A simple example"/>
+        <meta charset="utf-8"/>
+        <style type="text/css">
+            thead th {
+                text-align: left;
+                background-color: grey;
+                color: white;
+            }
+            tbody th {
+                text-align: right;
+                background: lightgray;
+                color: grey;
+            }
+            fieldset {
+                border: 1px solid lightgrey;
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="css/day2css.css">
+        <!--<link rel="shortcut icon" type="image/x-icon" href="">-->
+        <script defer src="js/jssample.js"></script>
+    </head>
+    <body>
+        <p style="font-weight:bold;">I love web</p>
+        <a href="http://apress.com">Visit Apress</a>
+
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Color</th>
+                    <th>Size</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Favorite:</th>
+                    <td>Apples</td>
+                    <td>Green</td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <th>2nd Favorite:</th>
+                    <td>Oranges</td>
+                    <td>Orange</td>
+                    <td>Large</td>
+                </tr>
+                <tr>
+                    <th>3rd Favorite:</th>
+                    <td>Pomegrante</td>
+                    <td>A kind of greeny-red</td>
+                    <td>Varies form medium to large</td>
+                </tr>
+                </tbody>
+            </table>
+        <form name="fruitvote" target="_blank" method="post" action="/form" >
+        <fieldset>
+
+            <legend>Enter your details</legend>
+            <p><label for="fave">Fruit:</label>
+            <input list="fruitlist" type="text" name="fave" id="fave" value=""></p>
+            <p><label for="name">Name:</label>
+            <input  type="text" name="name" id="name" value="Jack" readonly></p>
+            <p><label for="address">Name:</label>
+            <input type="number" min="50" name="address" id="address" value=""></p>
+            <p><label for="password">Password:</label>
+            <input id="password" type="password" name="password" value=""  placeholder="Min 6 characters"></p>
+            <p><label for="veggie">Are you vegetarian</label>
+            <input type="checkbox" name="veggie"  id="veggie"></p>
+            <p><label for="color">Color:</label>
+            <input type="color" name="color" id="color" value=""></p>
+            <p><label for="fave2" style="vertical-align:top;">Favorite fruit</label>
+                <select id="fave2" name="fave2" multiple>
+                    <optgroup label="Top choices">
+                    <option value="apples">apples</option>
+                    <option value="oranges">oranges</option>                        
+                    </optgroup>
+                    <optgroup label="others">
+                    <option value="pears">pears</option>    
+                    </optgroup>                   
+                </select>
+            </p>
+            <p><textarea rows="5" cols="20" id="story" name="story" placeholder="tell us why"></textarea></p>
+            <p><label for="email">Email:</label>
+            <input type="email" name="email" placeholder="xxx@mydomain.com" required pattern="^.+@mydomain.com$"></p>
+            <button type="submit" formmethod="post" formaction="/form">Submit</button>
+            <button type="reset">Reset</button>
+            <button type="button">Button</button>            
+        </fieldset>
+
+        </form>
+        <datalist id="fruitlist">
+            <option value="Apples" label="Lovly Apple"></option>
+            <option value="Oranges">Refreshing Orange</option>
+            <option value="Cherries"></option>
+        </datalist>
+        <br>
+        <hr>
+        <details>
+            <summary>
+                kinds of traithlon
+            </summary>
+            <ol>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ol>        
+        </details>
+        <br>
+        <hr>
+        <p><img src="triathlon.png" alt="Triathlon Image" width="200" height="67"></p>
+        <progress value="10" max="100" id="myprogress"></progress>
+        <button type="button" value="30">30%</button>
+        <script>
+            var buttons = document.getElementsByTagName('BUTTON');
+            var progress = document.getElementById('myprogress');
+            for(var i = 0; i < buttons.length; i++){
+                button[i].onclick = function(e){
+                    progress.value = e.target.value;
+                };
+            }
+        </script>
+    </body>
+</html>
