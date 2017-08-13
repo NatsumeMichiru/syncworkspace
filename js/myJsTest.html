@@ -7,15 +7,25 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
+        <p class="test test1">dudulu1</p>
+        <p class="test">dudulu2</p>
+        <p class="test">dudulu3</p>
+        <p class="test test1">dudulu4</p>
+        <p class="test">dudulu5</p>
+        <p class="test">dudulu6</p>
+        <p class="test">dudulu7</p>
+        <p class="test">dudulu8</p>
         <script src="jQuery/jquery-3.2.1.js"></script>
         <script>
-            var myArray = ['dudulu1', 'dudulu2', 'dudulu3'];
-            var myString = '';
-            $.each(myArray, function(i, val) {
-                myString = myString + i + val + ' ';
+            var $paraTotal = $('.test');
+            var sum = [];
+            $paraTotal.each(function() {
+                if (this.className == 'test test1') {
+                    sum.push(this);
+                }
             })
-
-            document.write(myString);
+            var myTest1 = $paraTotal.filter('.test1');
+            myTest1.hide();
 
 
         </script>
