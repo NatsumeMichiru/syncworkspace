@@ -17,16 +17,23 @@
         <p class="test">dudulu8</p>
         <script src="jQuery/jquery-3.2.1.js"></script>
         <script>
-            var $paraTotal = $('.test');
-            var sum = [];
-            $paraTotal.each(function() {
-                if (this.className == 'test test1') {
-                    sum.push(this);
-                }
-            })
-            var myTest1 = $paraTotal.filter('.test1');
-            myTest1.hide();
-
+            // var $paraTotal = $('.test');
+            // var sum = [];
+            // $paraTotal.each(function() {
+            //     if (this.className == 'test test1') {
+            //         sum.push(this);
+            //     }
+            // })
+            // var myTest1 = $paraTotal.filter('.test1');
+            // myTest1.hide();
+            
+            var myP = document.getElementsByTagName('p');
+            console.log(myP);
+            for (var i = 0; i < myP.length; i++) {
+                var element = myP[i];
+                console.log(element);
+                
+            }
 
         </script>
     </body>
