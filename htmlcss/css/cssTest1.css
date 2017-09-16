@@ -1,0 +1,85 @@
+.myp1 .myp2 {
+    background: #777;
+    color: red;
+}
+
+/* 第一章 css和文档 */
+
+/*
+替换元素，非替换元素
+元素显示角色：块级元素，行内元素
+
+引用外部样式表：
+link标记：
+<link rel="stylesheet" type="text/css" href="testsheet1.css" />
+
+@import指令：
+@import url(test.css)
+@import url(http://example.org/library/testsheet.css) */
+
+
+/* 第二章 选择器 */
+
+/* h1 { 选择器
+    color: red; 声明：属性，值（关键字，或该属性关键字的一个列表，关键字之间用空格分割）
+    background: yellow;
+} 
+
+元素选择器：
+h1 {
+    color: red;
+}
+选择器分组：
+h2, p {
+    color: red;
+}
+类选择器：
+.warning {
+    font-size: 12px;
+}
+p.warning {}
+多类选择器：
+.warning.urgent {}
+id选择器：
+#lead-para {}
+属性选择器：
+h1[class] {}
+a[href][title] {}
+a[href="http://example.org"] {}
+根据部分属性值选择：
+p[class~="warning"] {} 选择class属性中包含warning的p元素（用空格作分隔符）
+子串匹配属性选择器：
+[foo^="bar"]  选择以bar开头的
+[foo$="bar"]  选择以bar结尾的
+[foo*="bar"]  选择包含bar子串的
+特定属性选择类型：
+*[lang|="en"]  选择lang属性等于en或者以en-开头的所有元素
+后代选择器：
+h1 em {}
+ul ol ul em {}
+td.sidebar em {}
+子元素选择器：
+p > strong {}
+选择相邻兄弟元素：
+h1 + p {}  选择紧接在一个h1元素后出现的所有p，h1与p有共同的父元素
+伪类选择器：
+a:link 指向一个未访问地址的链接
+a:visited 指示作为已访问地址超链接的所有锚
+a#footer-copyright:visited 适用于id选择器
+动态伪类：
+:focus
+:hover
+:active
+伪类的顺序：link visited focus hover active
+选择第一个子元素：
+p:first-child  最常见的错误是认为选择器会选择p元素的第一个子元素，
+而实际上是选择作为第一个子元素的p，伪类的实质是把某种幻象类关联到与伪类相关的元素上
+伪元素选择器：
+设置首字母样式：
+p::first-letter {}
+首行：
+p::first-line {}
+设置之前和之后的样式：
+h2::before {}
+body::after {}
+*/
