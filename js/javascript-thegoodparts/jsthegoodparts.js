@@ -1,21 +1,21 @@
 //关于闭包：
 //函数执行时才传递参数，传参时复制值而不是传递引用
- var addTheHandlers = function (nodes) {
-     var i;
-     for (var i = 0; i < nodes.length; i++) {
-         nodes[i].addEventListener('click', myAlert(i));
+//  var addTheHandlers = function (nodes) {
+//      var i;
+//      for (var i = 0; i < nodes.length; i++) {
+//          nodes[i].addEventListener('click', myAlert(i));
          
-     }
- }
+//      }
+//  }
 
- function myAlert(i) {
-     return function() {
-         alert(i);
-     }
- }
+//  function myAlert(i) {
+//      return function() {
+//          alert(i);
+//      }
+//  }
 
- var myNodes = document.getElementsByClassName('myP');
- addTheHandlers(myNodes);
+//  var myNodes = document.getElementsByClassName('myP');
+//  addTheHandlers(myNodes);
 
  //memoization
 
@@ -174,6 +174,11 @@ var sum = function() {
 函数可以通过此参数访问所有它被调用时传递给它的参数列表
 arguments是一个array-like对象，拥有一个length属性，但没有任何数组的方法
 
+参数传递方式：
+函数调用时传递参数，
+基本类型是传值调用
+引用类型是传共享调用（传递对象的指针的拷贝）
+
 返回：
 异常：
 throw语句中断函数的执行，它应该抛出一个exception对象，该对象包含一个name属性和一个message属性
@@ -234,4 +239,110 @@ var myObject = (function() {
         }
     };
 }());
+
+var addHandlers = function(nodes) {
+    var helper = function(i) { //函数执行时才传参数，传参数复制值而不是传递引用
+        return function(e) {
+            alert(i);
+        };
+    };
+    var i;
+    for (var i = 0; i < nodes.length; i++) {
+        document.addEventListener(click, helper(i));
+    }
+}//正确给节点添加序号显示事件
+
+回调：
+sendRequestAsyncchronously(request, function(response) {
+    display(response);
+});
+
+模块：
+利用函数闭包来构造模块
+var serialMaker = function() {
+    var prefix = '',
+        seq = 0;
+    return {
+        setPrefix: function(p) {
+            prefix = String(p);
+        },
+        setSeq: function(s) {
+            seq = Number(s);
+        },
+        make: function() {
+            var result = prefix + seq;
+            seq += 1;
+            return result;
+        }
+    };
+};//一个用来产生序列号的模块例子
+级联：
+在一个级联中，可以在单独一条语句中依次调用同一个对象的很多方法
+柯里化：
+柯里化允许我们把函数与传递给它的参数相结合，产生出一个新的函数
+Function.method('curry', function() {
+    var slice = Array.prototype.slice,
+        args = slice.apply(arguments),
+        that = this;
+    return function() {
+        return that.apply(null, args.concat(slice.apply(arguments)));
+    };
+});
+
+记忆：
+var fibonacci = function() {
+    var memo = [0, 1];
+    var fib = function(n) {
+        var result = memo[n];
+        if(typeof result !== 'number') {//从缓存中查询，如果有则直接返回结果
+            result = fib(n - 1) + fib(n - 2);
+            memo[n] = result;//将结果存入缓存
+        }
+        return result;
+    };
+    return fib;
+}();
 */
+
+
+/*
+第五章：继承
+伪类：
+js不直接让对象从其它对象继承，反而插入了一个多余的间接层：
+通过构造器函数产生对象
+
+对象说明符：
+var myObject = New Maker({
+    first: f,
+    middle: m,
+    last: l
+});
+
+原型：
+var myCat = Object.create(myMammal);
+
+函数化：
+应用模块模式
+
+
+
+
+*/
+var mammal = function(spec) {
+    var that = {};
+    privateName = spec.name;
+    that.getName = function() {
+        return privateName;
+    };
+    that.setName = function(newName) {
+        spec.name = newName;
+        return spec.name;
+    };
+    return that;
+};
+mySpec = {
+    name: 'cat'
+};
+var myMammal = mammal(mySpec);
+mySpec.name = 'dog';
+console.log(myMammal.getName());
