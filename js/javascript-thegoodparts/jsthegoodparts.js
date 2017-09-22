@@ -323,14 +323,10 @@ var myCat = Object.create(myMammal);
 
 函数化：
 应用模块模式
-
-
-
-
-*/
 var mammal = function(spec) {
     var that = {};
     privateName = spec.name;
+    privateSaying = spec.saying;
     that.getName = function() {
         return privateName;
     };
@@ -338,11 +334,100 @@ var mammal = function(spec) {
         spec.name = newName;
         return spec.name;
     };
+    that.says = function() {
+        return privateSaying;
+    }
     return that;
 };
 mySpec = {
-    name: 'cat'
+    name: 'myCat'
 };
-var myMammal = mammal(mySpec);
-mySpec.name = 'dog';
-console.log(myMammal.getName());
+// var myMammal = mammal(mySpec);
+// mySpec.name = 'dog';
+// console.log(myMammal.getName());
+
+var cat = function(spec) {
+    spec.saying = spec.saying || 'meow';
+    var privateSaying = spec.saying;
+    var that = mammal(spec);
+    that.says = function() {
+        return privateSaying + privateSaying + privateSaying;
+    }
+    return that;
+};
+
+var myCat = cat(mySpec);
+console.log(myCat.says());
+
+部件：
+*/
+
+/*
+第六章：数组
+
+数组字面量：
+var empty = [];
+var numbers = ['zero', 'one'];
+var = numbersObject = {
+    '0': 'zero',
+    '1': 'one'
+};
+numbers继承自Array.protoype,numbersObject继承自Object.protoype
+js数组中的元素可以是不同的类型
+
+长度：
+numbers[numbers.length] = 'shi';
+附加一个新元素到该数组的尾部
+numbers.push('go');
+删除：
+delete numbers[2];
+删除会在数组中留下一个空洞
+numbers.splice(2, 1);第一个参数是数组中的一个序号，第二个参数是要删除元素的个数
+splice删除元素不会留下空洞，会将后面的所有属性移除并重新插入
+枚举：
+var i;
+for (i = 0; i < myArray.length; i += 1) {
+    console.log(myArray[i]);
+}
+容易混淆的地方：
+在属性名是小而连续的整数时使用数组，否则使用对象
+js本身对于数组和对象的区别是混乱的，typeof均返回object
+Array.isArray()方法判断数组
+方法：
+Array.prototype.reduce = function(f, value) {
+    var i;
+    for (i = 0; i < this.length; i++) {
+        value = f(this[i], value);
+    }
+    return value;
+};
+指定初始值：
+二维数组：
+var matrix = [
+    [0, 1, 2],
+    [3, 4, 5]
+];
+matrix[0][2]
+Array.matrix = function(m, n, init) {
+    var a, i, j, mat = [];
+    for (i = 0; i < m; i++) {
+        a = [];
+        for (j = 0; j < n; j++) {
+            a[j] = init;
+        }
+        mat[i] = a;
+    }
+    return mat;
+}
+*/
+
+/*
+第七章： 正则表达式
+^表示字符串的开始
+(?:....)表示一个非捕获型分组
+后缀?表示可选
+(...)表示一个捕获型分组，会复制它所匹配的文本，放到result数组里，第一个是result[1]
+[...]表示一个字符类
+后缀+表示匹配一次或多次
+[^?#]匹配除了?和#之外的所有字符
+*/
