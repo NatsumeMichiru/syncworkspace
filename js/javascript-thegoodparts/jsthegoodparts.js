@@ -4,7 +4,7 @@
 //      var i;
 //      for (var i = 0; i < nodes.length; i++) {
 //          nodes[i].addEventListener('click', myAlert(i));
-         
+
 //      }
 //  }
 
@@ -17,28 +17,28 @@
 //  var myNodes = document.getElementsByClassName('myP');
 //  addTheHandlers(myNodes);
 
- //memoization
+//memoization
 
- var memoizer = function(memo, formula) {
-     var recur = function(n) {
-         var result = memo[n];
-         if (typeof result !== 'number') {
-             result = formula(recur, n);
-             memo[n] = result;
-         }
-         return result;
-     };
-     return recur;
- };
+var memoizer = function (memo, formula) {
+    var recur = function (n) {
+        var result = memo[n];
+        if (typeof result !== 'number') {
+            result = formula(recur, n);
+            memo[n] = result;
+        }
+        return result;
+    };
+    return recur;
+};
 
- var fibonacci = memoizer([0, 1], function(recur, n) {
-     return recur(n - 1) + recur(n - 2);
- });
+var fibonacci = memoizer([0, 1], function (recur, n) {
+    return recur(n - 1) + recur(n - 2);
+});
 
- for (var index = 0; index < 20; index++) {
+for (var index = 0; index < 20; index++) {
     document.writeln(index + ' : ' + fibonacci(index) + '</br>');
-     
- }
+
+}
 
 //  JavaScript: The Good Parts
 /* 第二章： 语法
@@ -323,7 +323,7 @@ var myCat = Object.create(myMammal);
 
 函数化：
 应用模块模式
-var mammal = function(spec) {
+var mammal = function (spec) {
     var that = {};
     privateName = spec.name;
     privateSaying = spec.saying;
@@ -427,7 +427,83 @@ Array.matrix = function(m, n, init) {
 (?:....)表示一个非捕获型分组
 后缀?表示可选
 (...)表示一个捕获型分组，会复制它所匹配的文本，放到result数组里，第一个是result[1]
-[...]表示一个字符类
+[...]表示一个字符类,[A-Za-z]表示这个字符类包含26个大写字母和26个小写字母
 后缀+表示匹配一次或多次
 [^?#]匹配除了?和#之外的所有字符
+.匹配除了换行符以外的所有字符
+$表示字符串的结束
+结构：
+优先考虑使用正则表达式字面量
+标识：
+g 全局的
+i 大小写不敏感
+m 多行（^和$能匹配行结束符）
+使用RegExp构造器：
+var myRegexp = new RegExp("\"(?:\\\\.|[^\\\\\\\"])*\"", 'g');
+用正则表达式字面量创建RegExp对象共享同一个单例：
+function makeAMatcher () {
+    return /a/gi;
+}
+var x = makeAMatcher();
+var y = makeAMatcher();
+x和y是相同的对象！???有疑问，不是同一个对象
+function makeAMatcher () {
+    return /a/gi;
+}
+var x = makeAMatcher();
+var y = makeAMatcher();
+x.lastIndex = 10;
+y.lastIndex = 5;
+console.log(y.lastIndex);
+console.log(x.lastIndex);
+元素：
+一个正则表达式分支包含一个或多个正则表达式序列。这些序列被|字符分隔
+一个正则表达式序列包含一个或多个正则表达式因子。每个因子能选择是否跟随一个量词，
+量词决定这个因子被允许出现的次数，如果没有量词，该因子只匹配一次
+正则表达式转义：
+\d 等同于[0-9],匹配一个数字，\D表示与其相反的：[^0-9]
+\s 表示空白符
+\w 等同于[0-9a-z_A-Z] \W 表示与其相反
+\b 字边界 它使用\w去寻找字边界，对多语言应用完全无用
+\1 指向分组1所捕获到的文本的一个引用
+正则表达式分组：
+分组共有四种：
+捕获型：
+非捕获型： (?:) 非捕获型并不会干扰捕获型的编号
+向前正向匹配(零宽度正预测先行断言)： (?=exp)
+断言自身出现的位置的后面能匹配表达式exp
+\b\w(?=ing\b) 匹配以ing结尾的单词的前面部分
+零宽度正回顾后发断言：(?<=exp)
+断言自身出现的位置的前面能匹配表达式exp
+(?<=\bre)\w+\b 匹配以re开头的单词的后半部分
+零宽度负预测先行断言：(?!exp)
+断言此位置的后面不能匹配表达式exp
+\d{3}(?!\d) 匹配三位数字，三位数字后面不能是数字
+零宽度负回顾后发断言：(?<!exp)
+断言此位置前面不能匹配表达式exp
+(?<![a-z])\d{7} 匹配前面不是小写字母的七位数字
+正则表达式字符集：
+一组由32个ASCII特殊字符组成的集合:
+[!-\/:-@\[-`{-~]  (非常丑陋)
+正则表达式字符转义：
+字符类内部的转义规则和正则表达式因子的不同。[\b]是退格符。下面是在字符类中需要被转义的特殊字符
+- / [ \ ] ^
+正则表达式量词
+/www/ 和 /w{3}/ 一样
+{3,6} 会匹配3、4、5、6次
+{3,} 会匹配3次或更多次
+? 0或1次
+* 0次或更多次
++ 1次或更多次
+如果只有一个量词，则表示贪婪匹配，如果量词后缀一个?
+则表示进行非贪婪匹配，即只匹配必要的次数，
+一般情况下最好坚持使用贪婪匹配
+*/
+
+/*
+第八章：方法
+
+
+
+
 */

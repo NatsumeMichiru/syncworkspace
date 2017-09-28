@@ -1,4 +1,4 @@
-var modal = (function() {
+var modal = (function () {
     var $window = $(window),
         $modal = $('<div class="modal"/>'),
         $content = $('<div class="modal-content"/>'),
@@ -6,21 +6,21 @@ var modal = (function() {
 
     $modal.append($content, $close);
 
-    $close.on('click', function(e) {
+    $close.on('click', function (e) {
         e.preventDefault();
         modal.close();
     });
 
     return {
-        center: function() {
+        center: function () {
             var top = Math.max($window.height() - $modal.outerHeight(), 0) / 2;
             var left = Math.max($window.width() - $modal.outerWidth(), 0) / 2;
             $modal.css({
-                top:top + $window.scrollTop(),
-                left:left + $window.scrollLeft()
+                top: top + $window.scrollTop(),
+                left: left + $window.scrollLeft()
             });
         },
-        open: function(settings) {
+        open: function (settings) {
             $content.empty().append(settings.content);
 
             $modal.css({
@@ -31,7 +31,7 @@ var modal = (function() {
             modal.center();
             $(window).on('resize', modal.center);
         },
-        close: function() {
+        close: function () {
             $content.empty();
             $modal.detach();
             $(window).off('resize', modal.center);
