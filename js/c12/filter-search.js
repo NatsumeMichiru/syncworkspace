@@ -1,10 +1,10 @@
-(function() {
+(function () {
 
     var $imgs = $('#gallery img'),
         $search = $('#filter-search'),
         cache = [];
-    
-    $imgs.each(function() {
+
+    $imgs.each(function () {
         cache.push({
             element: this,
             text: this.alt.trim().toLowerCase()
@@ -13,7 +13,7 @@
 
     function filter() {
         var query = this.value.trim().toLowerCase();
-        cache.forEach(function(img) {
+        cache.forEach(function (img) {
             var index = 0;
 
             if (query) {
@@ -25,7 +25,7 @@
             } else {
                 img.element.style.display = '';
             }
-            
+
         });
     }
 
