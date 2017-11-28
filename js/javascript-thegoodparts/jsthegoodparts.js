@@ -505,5 +505,4 @@ console.log(x.lastIndex);
 
 
 
-
 */
