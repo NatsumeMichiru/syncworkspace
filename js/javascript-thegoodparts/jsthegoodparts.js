@@ -17,7 +17,7 @@
 //  var myNodes = document.getElementsByClassName('myP');
 //  addTheHandlers(myNodes);
 
-//memoization
+//memoization test
 
 var memoizer = function (memo, formula) {
     var recur = function (n) {
