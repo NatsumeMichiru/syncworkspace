@@ -1,23 +1,23 @@
-//关于闭包：
-//函数执行时才传递参数，传参时复制值而不是传递引用
-//  var addTheHandlers = function (nodes) {
-//      var i;
-//      for (var i = 0; i < nodes.length; i++) {
-//          nodes[i].addEventListener('click', myAlert(i));
+关于闭包：
+函数执行时才传递参数，传参时复制值而不是传递引用
+ var addTheHandlers = function (nodes) {
+     var i;
+     for (var i = 0; i < nodes.length; i++) {
+         nodes[i].addEventListener('click', myAlert(i));
 
-//      }
-//  }
+     }
+ }
 
-//  function myAlert(i) {
-//      return function() {
-//          alert(i);
-//      }
-//  }
+ function myAlert(i) {
+     return function() {
+         alert(i);
+     }
+ }
 
-//  var myNodes = document.getElementsByClassName('myP');
-//  addTheHandlers(myNodes);
+ var myNodes = document.getElementsByClassName('myP');
+ addTheHandlers(myNodes);
 
-//memoization test
+memoization test
 
 var memoizer = function (memo, formula) {
     var recur = function (n) {
