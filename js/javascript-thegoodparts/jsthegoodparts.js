@@ -14,10 +14,9 @@
 //      }
 //  }
 
- var myNodes = document.getElementsByClassName('myP');
- addTheHandlers(myNodes);
+var myNodes = document.getElementsByClassName('myP');
+addTheHandlers(myNodes);
 
-memoization test
 
 var memoizer = function (memo, formula) {
     var recur = function (n) {
