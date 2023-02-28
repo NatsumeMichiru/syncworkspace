@@ -48,3 +48,4 @@ var quayHotel = new Hotel('Quay', 40, 25);
 var myDate = new Date();
 var myDate2 = new Date(myDate.getTime() + 24*60*60*1000);
 document.writeln(myDate2);
+

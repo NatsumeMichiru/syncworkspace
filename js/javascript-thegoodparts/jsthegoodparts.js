@@ -19,7 +19,7 @@ addTheHandlers(myNodes);
 
 
 var memoizer = function (memo, formula) {
-    var recur = function (n) {
+var recur = function (n) {
         var result = memo[n];
         if (typeof result !== 'number') {
             result = formula(recur, n);
