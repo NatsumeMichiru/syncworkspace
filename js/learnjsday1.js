@@ -7,14 +7,14 @@ var area1 = function(width, height){
     return width * height;
 };//函数表达式
 
-var area2 = (
+var area2 = 
     function(){
         var width = 3;
         var height = 4;
         return width * height;
-    }());
+    }();
 //立即调用函数表达式
-
+console.log(area2)
 var hotel = {
     name: 'Pake',
     rooms: 50,
@@ -46,6 +46,5 @@ var quayHotel = new Hotel('Quay', 40, 25);
 //创建构造函数创建对象
 
 var myDate = new Date();
-var myDate2 = new Date(myDate.getTime() + 24*60*60*1000);
-document.writeln(myDate2);
+
 
