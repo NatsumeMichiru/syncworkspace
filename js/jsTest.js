@@ -46,14 +46,21 @@
 // console.log(test);
 // console.log(factorial);
 
-var fn;
+function outer() {
+    let x = 0;
 
-(function(i) {
-    fn = function() {
-        console.log(i);
+    return {
+        inc() {
+            x++;
+        },
+        get() {
+            return x;
+        }
     };
+}
 
-    i = 100;
-})(0);
+const obj1 = outer();
+const obj2 = outer();
 
-fn();
+obj1.inc();
+console.log(obj1.get()); 
